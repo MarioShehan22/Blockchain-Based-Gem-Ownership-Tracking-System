@@ -1,19 +1,33 @@
 import { HardhatUserConfig } from "hardhat/config";
-import "@nomicfoundation/hardhat-toolbox";
-import * as dotenv from "dotenv";
+import "@nomicfoundation/hardhat-ethers";
+import dotenv from "dotenv";
+
 dotenv.config();
 
 const config: HardhatUserConfig = {
-  solidity: "0.8.28",
+  solidity: "0.8.20",
+
   networks: {
-    tenderlyFork: {
-      url: "https://virtual.mainnet.eu.rpc.tenderly.co/d40e9a0b-bfe1-4b38-ab93-c0c7f2dc4a41",
-      accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
-      chainId: 1, // matches Mainnet
+    localhost: {
+      url: "http://127.0.0.1:8545",
     },
-    localhost: {},
+
+    // sepolia: {
+    //   url: process.env.SEPOLIA_URL || "",
+    //   accounts: process.env.PRIVATE_KEY
+    //       ? [process.env.PRIVATE_KEY]
+    //       : [],
+    //   chainId: 11155111,
+    // },
+    //
+    // polygonMumbai: {
+    //   url: process.env.POLYGON_MUMBAI_URL || "",
+    //   accounts: process.env.PRIVATE_KEY
+    //       ? [process.env.PRIVATE_KEY]
+    //       : [],
+    //   chainId: 80001,
+    // },
   },
 };
-
 
 export default config;

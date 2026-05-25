@@ -15,7 +15,7 @@ contract GemRegistry is AccessControl {
 
     struct Gem {
         uint256 gemId;
-        string metadataHash;   // SHA-256 hash of metadata stored off-chain (IPFS)
+        string metadataHash;
         address currentOwner;
         VerificationStatus status;
         address verifiedBy;
